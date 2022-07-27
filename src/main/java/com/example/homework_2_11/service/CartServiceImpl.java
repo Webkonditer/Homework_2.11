@@ -2,13 +2,11 @@ package com.example.homework_2_11.service;
 
 import com.example.homework_2_11.model.Cart;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.annotation.SessionScope;
 
+import java.util.Map;
 import java.util.Scanner;
 
 @Service
-@SessionScope
-
 public class CartServiceImpl implements CartService {
 
 
@@ -18,12 +16,12 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Cart getCart() {
-        return cart;
+    public Map<Integer, Integer> getCart() {
+        return cart.getCart();
     }
 
     @Override
-    public Cart addToCart(String newItems) {
+    public Map<Integer, Integer> addToCart(String newItems) {
         Scanner scanner = new Scanner(newItems);
         scanner.useDelimiter(",");
         while(scanner.hasNext()){
@@ -34,7 +32,7 @@ public class CartServiceImpl implements CartService {
                 throw new RuntimeException();
             }
         }
-        return cart;
+        return cart.getCart();
     }
 
     private boolean isNumeric(String str) {

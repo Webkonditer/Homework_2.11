@@ -1,9 +1,9 @@
 package com.example.homework_2_11.service;
 
-import com.example.homework_2_11.model.Cart;
+import java.util.Map;
 
 public interface CartService {
-    Cart getCart();
+    Map<Integer, Integer> getCart();
 
-    Cart addToCart(String newItems);
+    Map<Integer, Integer> addToCart(String newItems);
 }
